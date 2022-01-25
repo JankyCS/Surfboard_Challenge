@@ -61,11 +61,6 @@ const Meeting = (props) => {
 
     socket.on("message", msg => {
       getPastMessages()
-      // const messageObject = parseMessage(msg)
-      // if(messageObject.meetingId !== roomid){
-      //   return
-      // }
-      // setMessages(prevMessages=>[...prevMessages, messageObject]);
     });
   },[roomid]);
 
@@ -88,11 +83,6 @@ const Meeting = (props) => {
 
   const createNewTopic = () => {
     if(newTopicName.replace(" ","") !== ""){
-      // topics.forEach(topic => {
-      //   if(topic.title.toLowerCase() === newTopicName.toLowerCase()){
-      //     return
-      //   }
-      // });
       for(let i =0;i<topics.length;i++){
         const topic = topics[i]
         if(topic.toLowerCase() === newTopicName.toLowerCase()){
@@ -115,10 +105,6 @@ const Meeting = (props) => {
       setNewTopicTime("")
       setNewTopicDesc("")
     }
-  }
-
-  const editTopic = () => {
-
   }
 
   let topicMessages= messages.filter(msg=>msg.topic === curTopic)
@@ -232,15 +218,11 @@ const Meeting = (props) => {
                         Save
                   </Button>
                   </span>
-
-
-
                 }
               </div>
               )
               :
               <div></div>
-            
             }
             {
               topicMessages.slice(1).map(msg=>(
